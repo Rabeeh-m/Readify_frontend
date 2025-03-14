@@ -50,7 +50,7 @@ function Register() {
                   id="username"
                   className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 text-base"
                   placeholder="Username"
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={e => setUsername(e.target.value)}
                 />
               </div>
 

@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
         title: "Login Successful",
         icon: "success",
         toast: true,
-        timer: 6000,
+        timer: 2000,
         position: "top-right",
         timerProgressBar: true,
         showConfirmButton: false,
@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
         title: "Username or password does not exist",
         icon: "error",
         toast: true,
-        timer: 6000,
+        timer: 2000,
         position: "top-right",
         timerProgressBar: true,
         showConfirmButton: false,
@@ -81,25 +81,28 @@ export const AuthProvider = ({ children }) => {
         password2,
       }),
     });
+  
     if (response.status === 201) {
       navigate("/login");
-      Swal.fire({ // Changed swal to Swal
+      Swal.fire({
         title: "Registration Successful, Login Now",
         icon: "success",
         toast: true,
-        timer: 6000,
+        timer: 2000,
         position: "top-right",
         timerProgressBar: true,
         showConfirmButton: false,
       });
     } else {
-      console.log(response.status);
-      console.log("there was a server issue");
-      Swal.fire({ // Changed swal to Swal
-        title: "An Error Occurred " + response.status,
+      const errorData = await response.json(); // Get the error details from the response
+      console.log("Status:", response.status);
+      console.log("Error details:", errorData); // Log the full error response
+      Swal.fire({
+        title: "An Error Occurred: " + response.status,
+        text: JSON.stringify(errorData), // Show error details in the alert
         icon: "error",
         toast: true,
-        timer: 6000,
+        timer: 2000,
         position: "top-right",
         timerProgressBar: true,
         showConfirmButton: false,
@@ -116,7 +119,7 @@ export const AuthProvider = ({ children }) => {
       title: "You have been logged out...",
       icon: "success",
       toast: true,
-      timer: 6000,
+      timer: 2000,
       position: "top-right",
       timerProgressBar: true,
       showConfirmButton: false,
