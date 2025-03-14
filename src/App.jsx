@@ -8,6 +8,8 @@ import Register from "./views/Register.jsx";
 import Profile from "./views/Profile.jsx";
 import Header from "./views/partials/Header.jsx";
 import Footer from "./views/partials/Footer.jsx";
+import Books from "./views/Books.jsx";
+import BookDetails from "./views/BookDetails.jsx";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={ <PrivateRoute> <Profile /> </PrivateRoute> }/>
+          <Route path="/books" element={<Books />} />
+          <Route path="/books/:bookId" element={<BookDetails />} />
         </Routes>
         <Footer></Footer>
       </AuthProvider>
