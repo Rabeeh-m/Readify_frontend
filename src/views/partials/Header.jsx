@@ -46,7 +46,6 @@ function Header() {
           <nav className={`${
             isOpen ? 'block' : 'hidden'
           } md:flex md:items-center md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0`}>
-            <Link to="/books" className="block md:inline-block text-black hover:text-blue-600 transition-colors duration-200 mb-2 md:mb-0">Books</Link>
 
             {token === null && (
               <>
@@ -67,6 +66,8 @@ function Header() {
 
             {token !== null && (
               <>
+                <Link to="/books" className="block md:inline-block text-black hover:text-blue-600 transition-colors duration-200 mb-2 md:mb-0">Books</Link>
+                <Link to="/reading-lists" className="block md:inline-block text-black hover:text-blue-600 transition-colors duration-200 mb-2 md:mb-0">Reading Lists</Link>
                 <Link 
                   to="/profile" 
                   className="block md:inline-block text-black hover:text-blue-600  transition-colors duration-200 mb-2 md:mb-0"

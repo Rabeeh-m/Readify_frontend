@@ -10,6 +10,7 @@ import Header from "./views/partials/Header.jsx";
 import Footer from "./views/partials/Footer.jsx";
 import Books from "./views/Books.jsx";
 import BookDetails from "./views/BookDetails.jsx";
+import ReadingLists from "./views/ReadingLists.jsx";
 
 function App() {
   return (
@@ -17,12 +18,13 @@ function App() {
       <AuthProvider>
         <Header></Header>
         <Routes>
-          <Route path="/" element={<Home />}/>
+          <Route path="/" element={<PrivateRoute> <Home />  </PrivateRoute>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={ <PrivateRoute> <Profile /> </PrivateRoute> }/>
-          <Route path="/books" element={<Books />} />
-          <Route path="/books/:bookId" element={<BookDetails />} />
+          <Route path="/books" element={<PrivateRoute> <Books />  </PrivateRoute>} />
+          <Route path="/books/:bookId" element={<PrivateRoute> <BookDetails /> </PrivateRoute>} />
+          <Route path="/reading-lists" element={<PrivateRoute> <ReadingLists /> </PrivateRoute>} />
         </Routes>
         <Footer></Footer>
       </AuthProvider>
