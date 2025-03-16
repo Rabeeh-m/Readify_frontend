@@ -1,12 +1,37 @@
-# React + Vite
+# Readify Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the frontend for Readify, a web application for managing personal book collections and reading lists. It is built with React and uses Vite as the build tool.
 
-Currently, two official plugins are available:
+## Features
+- User authentication (login, register)
+- Book browsing and PDF viewing
+- Reading list management with drag-and-drop ordering
+- Responsive UI for desktop and mobile
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
+- **Node.js** (18.x or higher) and **npm** (8.x or higher)
+- **Git** (for cloning the repository)
+- A running instance of [Readify Backend](https://github.com/<your-username>/Readify_backend)
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Clone the Repository
+  git clone https://github.com/<your-username>/Readify_frontend.git
+  cd Readify_frontend
+
+### 2. Install Dependencies
+  npm install
+
+### 3. Configure API Base URL
+  axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
+
+### 4. Run the Development Server
+  npm run dev
+
+
+## Contributing
+  Fork the repository.
+  Create a feature branch (git checkout -b feature-name).
+  Commit changes (git commit -m "Add feature").
+  Push to the branch (git push origin feature-name).
+  Open a pull request
