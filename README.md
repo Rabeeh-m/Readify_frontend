@@ -30,8 +30,8 @@ This repository contains the frontend for Readify, a web application for managin
 
 
 ## Contributing
-  Fork the repository.
-  Create a feature branch (git checkout -b feature-name).
-  Commit changes (git commit -m "Add feature").
-  Push to the branch (git push origin feature-name).
-  Open a pull request
+-  Fork the repository.
+-  Create a feature branch (git checkout -b feature-name).
+-  Commit changes (git commit -m "Add feature").
+-  Push to the branch (git push origin feature-name).
+-  Open a pull request
