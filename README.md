@@ -16,18 +16,24 @@ This repository contains the frontend for Readify, a web application for managin
 ## Setup Instructions
 
 ### 1. Clone the Repository
+  ```bash
   git clone https://github.com/<your-username>/Readify_frontend.git
   cd Readify_frontend
+  ```
 
 ### 2. Install Dependencies
+  ```bash
   npm install
-
+  ```
 ### 3. Configure API Base URL
+ ```bash
   axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
+  ```
 
 ### 4. Run the Development Server
+  ```bash
   npm run dev
-
+  ```
 
 ## Contributing
 -  Fork the repository.
