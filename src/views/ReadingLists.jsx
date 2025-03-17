@@ -15,6 +15,9 @@ const ReadingLists = () => {
   const [readingLists, setReadingLists] = useState([]);
   const [newListName, setNewListName] = useState('');
 
+  const BaseUrl = isDevelopment ? import.meta.env.VITE_LOCAL_BASEURL : import.meta.env.VITE_DEPLOY_BASEURL;
+
+
   useEffect(() => {
     if (user) {
       fetchReadingLists();
@@ -192,7 +195,7 @@ const ReadingLists = () => {
                                 className="flex items-center space-x-4 p-2 bg-gray-50 rounded-md relative group cursor-move hover:bg-gray-100 transition duration-200"
                               >
                                 <img
-                                  src={`http://127.0.0.1:8000${item.book_details.cover_image}`}
+                                  src={`${BaseUrl}${item.book_details.cover_image}`}
                                   alt={item.book_details.title}
                                   className="w-12 h-16 object-cover rounded-md"
                                 />

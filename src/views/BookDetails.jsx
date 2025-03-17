@@ -22,6 +22,8 @@ const BookDetails = () => {
   const [readingLists, setReadingLists] = useState([]);
   const [selectedList, setSelectedList] = useState('');
 
+  const BaseUrl = isDevelopment ? import.meta.env.VITE_LOCAL_BASEURL : import.meta.env.VITE_DEPLOY_BASEURL;
+
   useEffect(() => {
     fetchBook();
     if (user) fetchReadingLists();
@@ -32,7 +34,7 @@ const BookDetails = () => {
       const response = await axios.get(`/books/${bookId}/`);
       setBook(response.data);
       console.log('Book data:', response.data);
-      console.log('PDF URL:', `http://127.0.0.1:8000${response.data.book_file}`);
+      console.log('PDF URL:', `${BaseUrl}${response.data.book_file}`);
     } catch (error) {
       console.error('Error fetching book:', error);
       Swal.fire({ 
@@ -126,7 +128,7 @@ const BookDetails = () => {
           {book.book_file ? (
             <div className="flex-1 overflow-auto max-h-[60vh] sm:max-h-[70vh]">
               <Document
-                file={`http://127.0.0.1:8000${book.book_file}`}
+                file={`${BaseUrl}${book.book_file}`}
                 onLoadSuccess={onDocumentLoadSuccess}
                 onLoadError={onDocumentLoadError}
                 className="flex justify-center"
@@ -163,7 +165,7 @@ const BookDetails = () => {
           <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Book Details</h3>
           {book.cover_image && (
             <img
-              src={`http://127.0.0.1:8000${book.cover_image}`}
+              src={`${BaseUrl}${book.cover_image}`}
               alt={book.title}
               className="w-full h-40 sm:h-48 object-cover rounded-md mb-4"
             />

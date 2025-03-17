@@ -22,6 +22,8 @@ const Books = () => {
   });
   const [isAdding, setIsAdding] = useState(false);
 
+  const BaseUrl = isDevelopment ? import.meta.env.VITE_LOCAL_BASEURL : import.meta.env.VITE_DEPLOY_BASEURL;
+
   useEffect(() => {
     if (user) {
       fetchBooks();
@@ -259,7 +261,7 @@ const Books = () => {
               >
                 {book.cover_image && (
                   <img 
-                    src={`http://127.0.0.1:8000${book.cover_image}`} 
+                    src={`${BaseUrl}${book.cover_image}`} 
                     alt={book.title} 
                     className="w-20 h-28 object-cover rounded-md" 
                   />

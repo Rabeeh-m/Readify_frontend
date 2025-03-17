@@ -14,6 +14,8 @@ const Profile = () => {
   });
   const [isEditing, setIsEditing] = useState(false);
 
+  const BaseUrl = isDevelopment ? import.meta.env.VITE_LOCAL_BASEURL : import.meta.env.VITE_DEPLOY_BASEURL;
+
   useEffect(() => {
     fetchProfile();
   }, []);
@@ -103,7 +105,7 @@ const Profile = () => {
                 <img
                   src={
                     typeof profileData.image === 'string'
-                      ? `http://127.0.0.1:8000${profileData.image}`
+                      ? `${BaseUrl}${profileData.image}`
                       : URL.createObjectURL(profileData.image)
                   }
                   alt="Profile"

@@ -9,6 +9,8 @@ function Home() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
+  const BaseUrl = isDevelopment ? import.meta.env.VITE_LOCAL_BASEURL : import.meta.env.VITE_DEPLOY_BASEURL;
+
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -94,7 +96,7 @@ function Home() {
                   <Link to={`/books/${book.id}`}>
                     <div className="w-full aspect-[2/3] relative">
                       <img
-                        src={`http://127.0.0.1:8000${book.cover_image}`}
+                        src={`${BaseUrl}${book.cover_image}`}
                         alt={`${book.title} cover`}
                         className="absolute inset-0 w-full h-full object-cover rounded-t-xl"
                         onError={(e) => (e.target.src = 'https://via.placeholder.com/200x300?text=No+Image')}
