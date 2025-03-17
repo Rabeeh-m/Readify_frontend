@@ -15,6 +15,7 @@ const ReadingLists = () => {
   const [readingLists, setReadingLists] = useState([]);
   const [newListName, setNewListName] = useState('');
 
+  const isDevelopment = import.meta.env.MODE === 'development'
   const BaseUrl = isDevelopment ? import.meta.env.VITE_LOCAL_BASEURL : import.meta.env.VITE_DEPLOY_BASEURL;
 
 

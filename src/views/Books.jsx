@@ -22,6 +22,7 @@ const Books = () => {
   });
   const [isAdding, setIsAdding] = useState(false);
 
+  const isDevelopment = import.meta.env.MODE === 'development'
   const BaseUrl = isDevelopment ? import.meta.env.VITE_LOCAL_BASEURL : import.meta.env.VITE_DEPLOY_BASEURL;
 
   useEffect(() => {

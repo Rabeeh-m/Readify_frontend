@@ -9,6 +9,7 @@ function Home() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
+  const isDevelopment = import.meta.env.MODE === 'development'
   const BaseUrl = isDevelopment ? import.meta.env.VITE_LOCAL_BASEURL : import.meta.env.VITE_DEPLOY_BASEURL;
 
   useEffect(() => {
