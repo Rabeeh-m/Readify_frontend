@@ -99,15 +99,25 @@ export const AuthProvider = ({ children }) => {
         showConfirmButton: false,
       });
     } else {
-      const errorData = await response.json(); // Get the error details from the response
-      console.log("Status:", response.status);
-      console.log("Error details:", errorData); // Log the full error response
+      const errorData = await response.json();
+      let errorMessage = "Registration Failed";
+      
+      // Handle specific validation errors
+      if (errorData.email) {
+        errorMessage = errorData.email[0];
+      } else if (errorData.username) {
+        errorMessage = errorData.username[0];
+      } else if (errorData.password) {
+        errorMessage = errorData.password[0];
+      } else {
+        errorMessage = "An error occurred during registration";
+      }
+
       Swal.fire({
-        title: "An Error Occurred: " + response.status,
-        text: JSON.stringify(errorData), // Show error details in the alert
+        title: errorMessage,
         icon: "error",
         toast: true,
-        timer: 2000,
+        timer: 3000,
         position: "top-right",
         timerProgressBar: true,
         showConfirmButton: false,

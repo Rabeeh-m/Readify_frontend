@@ -12,6 +12,19 @@ function Register() {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    // Basic client-side validation
+    if (!email || !username || !password || !password2) {
+      Swal.fire({
+        title: "All fields are required",
+        icon: "error",
+        toast: true,
+        timer: 3000,
+        position: "top-right",
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+      return;
+    }
     registerUser(email, username, password, password2);
   };
 
